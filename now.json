@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "Graph QL app",
+  "alias": ["graphql.ravindermahajan.co.in"],
   "builds": [
     {
       "src": "package.json",
