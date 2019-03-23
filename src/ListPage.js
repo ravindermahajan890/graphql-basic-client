@@ -16,9 +16,11 @@ const ExchangeRates = () => (
       if (loading) return <p>Loading...</p>;
       if (error) return <p>Error :(</p>;
 
-      return data.fetch.map(({ name }) => (
+      return data.fetch.map(({ name, age }) => (
         <div key={name}>
-          <p>{name}</p>
+          <p>
+            {name}: {age}
+          </p>
         </div>
       ));
     }}
