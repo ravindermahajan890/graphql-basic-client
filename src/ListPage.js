@@ -8,6 +8,7 @@ const ExchangeRates = () => (
       {
         fetch {
           name
+          age
         }
       }
     `}
