@@ -3,7 +3,7 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 const ADD_TODO = gql`
   mutation post($edetail: String!, $detail: Int!) {
-    post(task: $task, age: $detail) {
+    post(task: $task, detail: $detail) {
       task
       detail
     }
@@ -24,7 +24,7 @@ const AddMore = () => {
                 <input
                   className="form-control form-control-lg"
                   type="text"
-                  placeholder="Enter Name"
+                  placeholder="Enter Task"
                   onChange={e => {
                     setTask(e.target.value);
                   }}
@@ -35,7 +35,7 @@ const AddMore = () => {
                 <input
                   className="form-control form-control-lg"
                   type="text"
-                  placeholder="Enter Age"
+                  placeholder="Enter Detail"
                   onChange={e => {
                     setDetail(parseInt(e.target.value));
                   }}
