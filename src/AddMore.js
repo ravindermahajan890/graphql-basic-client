@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 const ADD_TODO = gql`
-  mutation post($edetail: String!, $detail: String!) {
+  mutation post($task: String!, $detail: String!) {
     post(task: $task, detail: $detail) {
       task
       detail
@@ -31,7 +31,7 @@ const AddMore = () => {
                 />
               </div>
               <div className="form-group">
-                <label for="formGroupExampleInput2">Age</label>
+                <label for="formGroupExampleInput2">Detail</label>
                 <input
                   className="form-control form-control-lg"
                   type="text"
