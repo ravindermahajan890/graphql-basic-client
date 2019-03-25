@@ -9,11 +9,22 @@ import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import { Link } from "react-router-dom";
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: "network-only",
+    errorPolicy: "ignore"
+  },
+  query: {
+    fetchPolicy: "network-only",
+    errorPolicy: "all"
+  }
+};
 const client = new ApolloClient({
   link: new HttpLink({
     uri: "https://api.ravindermahajan.co.in/graphql"
   }),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
+  defaultOptions
 });
 ReactDOM.render(
   <ApolloProvider client={client}>
