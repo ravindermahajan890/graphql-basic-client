@@ -30,12 +30,22 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <div>
-        <button>
-          <Link to="/">List</Link>
-        </button>
-        <button>
-          <Link to="/add">Add item</Link>
-        </button>
+        <nav className="navbar sticky-top  navbar-expand navbar-dark bg-dark">
+          <div className="collapse navbar-collapse" id="navbarText">
+            <ul className="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <Link className="nav-link" to="/">
+                  List
+                </Link>
+              </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/add">
+                  Add
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </nav>
         <Route exact path="/" component={ListPage} />
         <Route exact path="/add" component={AddPage} />
       </div>

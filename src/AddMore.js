@@ -2,44 +2,62 @@ import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 const ADD_TODO = gql`
-  mutation post($name: String!, $age: Int!) {
-    post(name: $name, age: $age) {
-      name
-      age
+  mutation post($edetail: String!, $detail: Int!) {
+    post(task: $task, age: $detail) {
+      task
+      detail
     }
   }
 `;
 const AddMore = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [task, setTask] = useState("");
+  const [detail, setDetail] = useState(0);
   return (
     <Mutation mutation={ADD_TODO}>
       {(addTodo, { data }) => (
         <div>
-          <label>Name</label>
-          <input
-            onChange={e => {
-              setName(e.target.value);
-            }}
-          />
-          <label>Age</label>
-          <input
-            onChange={e => {
-              setAge(parseInt(e.target.value));
-            }}
-          />
-          <button
-            onClick={async () => {
-              addTodo({ variables: { name, age } });
-            }}
-          >
-            Click to seee magic
-          </button>
+          <div class="jumbotron">
+            <h1 class="display-4">Please add your Tasks</h1>
+            <form>
+              <div className="form-group">
+                <label for="formGroupExampleInput">Task</label>
+                <input
+                  className="form-control form-control-lg"
+                  type="text"
+                  placeholder="Enter Name"
+                  onChange={e => {
+                    setTask(e.target.value);
+                  }}
+                />
+              </div>
+              <div className="form-group">
+                <label for="formGroupExampleInput2">Age</label>
+                <input
+                  className="form-control form-control-lg"
+                  type="text"
+                  placeholder="Enter Age"
+                  onChange={e => {
+                    setDetail(parseInt(e.target.value));
+                  }}
+                />
+              </div>
+              <button
+                type="button"
+                className="btn btn-primary btn-block"
+                onClick={async () => {
+                  addTodo({ variables: { task, detail } });
+                }}
+              >
+                Add
+              </button>
+            </form>
+          </div>
+
           {data &&
             data.post.map(item => (
               <div>
-                <span>{item.name}</span>
-                <span>{item.age}</span>
+                <span>{item.task}</span>
+                <span>{item.deatil}</span>
               </div>
             ))}
         </div>
