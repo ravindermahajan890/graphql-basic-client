@@ -7,6 +7,7 @@ import { ApolloProvider } from "react-apollo";
 import { ApolloClient } from "apollo-client";
 import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
+import { Link } from "react-router-dom";
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -18,6 +19,12 @@ ReactDOM.render(
   <ApolloProvider client={client}>
     <Router>
       <div>
+        <button>
+          <Link to="/">List</Link>
+        </button>
+        <button>
+          <Link to="/add">Add item</Link>
+        </button>
         <Route exact path="/" component={ListPage} />
         <Route exact path="/add" component={AddPage} />
       </div>
