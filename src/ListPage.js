@@ -3,28 +3,30 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
 const ExchangeRates = () => (
-  <Query
-    query={gql`
-      {
-        fetch {
-          name
-          age
+  <div>
+    <Query
+      query={gql`
+        query fetch {
+          fetch {
+            name
+            age
+          }
         }
-      }
-    `}
-  >
-    {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+      `}
+    >
+      {({ loading, error, data }) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :(</p>;
 
-      return data.fetch.map(({ name, age }) => (
-        <div key={name}>
-          <p>
-            {name}: {age}
-          </p>
-        </div>
-      ));
-    }}
-  </Query>
+        return data.fetch.map(({ name, age }) => (
+          <div key={name}>
+            <p>
+              {name}: {age}
+            </p>
+          </div>
+        ));
+      }}
+    </Query>
+  </div>
 );
 export default ExchangeRates;
