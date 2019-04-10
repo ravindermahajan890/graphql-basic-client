@@ -75,6 +75,15 @@ const ExchangeRates = () => (
                           >
                             done
                           </button>
+                          <button
+                            className="btn btn-warning col-sm-offset-2
+                      col-sm-2"
+                            onClick={async () => {
+                              await deleteTask(taskId, deleteTaskQuery);
+                            }}
+                          >
+                            Clear
+                          </button>
                           <small />
                         </div>
                         <p className="mb-1 col-sm-12">{detail}</p>
