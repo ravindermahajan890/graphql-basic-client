@@ -32,11 +32,11 @@ const AddMore = () => {
                 />
               </div>
               <div className="form-group">
-                <label for="formGroupExampleInput2">Detail</label>
+                <label for="formGroupExampleInput2">Date</label>
                 <input
                   className="form-control form-control-lg"
                   type="text"
-                  placeholder="Enter Detail"
+                  placeholder="Enter Date"
                   onChange={e => {
                     setDetail(e.target.value);
                   }}
