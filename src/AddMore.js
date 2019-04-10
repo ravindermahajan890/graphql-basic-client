@@ -6,6 +6,7 @@ const ADD_TODO = gql`
     post(task: $task, detail: $detail) {
       task
       detail
+      pending
     }
   }
 `;
@@ -16,8 +17,8 @@ const AddMore = () => {
     <Mutation mutation={ADD_TODO}>
       {(addTodo, { data }) => (
         <div>
-          <div class="jumbotron">
-            <h1 class="display-4">Please add your Tasks</h1>
+          <div className="jumbotron">
+            <h1 className="display-4">Please add your Tasks</h1>
             <form>
               <div className="form-group">
                 <label for="formGroupExampleInput">Task</label>
