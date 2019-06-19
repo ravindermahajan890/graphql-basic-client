@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 const ADD_TODO = gql`
   mutation post($task: String!, $detail: String!) {
     post(task: $task, detail: $detail) {
@@ -12,7 +14,7 @@ const ADD_TODO = gql`
 `;
 const AddMore = () => {
   const [task, setTask] = useState("");
-  const [detail, setDetail] = useState(0);
+  const [detail, setDetail] = useState(new Date());
   return (
     <Mutation mutation={ADD_TODO}>
       {(addTodo, { data, loading }) => {
@@ -37,6 +39,7 @@ const AddMore = () => {
               <form>
                 <div className="form-group">
                   <label for="formGroupExampleInput">Task</label>
+
                   <input
                     className="form-control form-control-lg"
                     type="text"
@@ -48,12 +51,11 @@ const AddMore = () => {
                 </div>
                 <div className="form-group">
                   <label for="formGroupExampleInput2">Date</label>
-                  <input
+                  <DatePicker
                     className="form-control form-control-lg"
-                    type="text"
-                    placeholder="Enter Date"
-                    onChange={e => {
-                      setDetail(e.target.value);
+                    selected={new Date(detail)}
+                    onChange={value => {
+                      setDetail(new Date(value).toDateString());
                     }}
                   />
                 </div>
