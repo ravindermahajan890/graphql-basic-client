@@ -61,42 +61,49 @@ const ExchangeRates = () => {
       {data.fetch.map(
         ({ task, detail, taskId, pending: taskPending }, index) => {
           return (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-            <a
-              href="#"
-              className={`list-group-item list-group-item-action ${
+            <div
+              className={`d-flex d-center item-wrapper ${
                 !taskPending ? "opaque" : ""
               }`}
-              key={index}
             >
-              <div className={`d-flex w-100 justify-content-between`}>
-                {<h5 className="col-sm-8">{task}</h5>}
-                {taskPending && (
-                  <button
-                    className="btn btn-success col-sm-offset-2
+              <span>{index + 1}</span>
+
+              <a
+                href="#"
+                className={`list-group-item list-group-item-action ${
+                  !taskPending ? "opaque" : ""
+                }`}
+                key={index}
+              >
+                <div className={`d-flex w-100 justify-content-between`}>
+                  {<h5 className="col-sm-8">{task}</h5>}
+                  {taskPending && (
+                    <button
+                      className="btn btn-success col-sm-offset-2
                       col-sm-2"
-                    onClick={async () => {
-                      await deleteTask({ variables: { taskId } });
-                    }}
-                  >
-                    done
-                  </button>
-                )}
-                {!taskPending && (
-                  <button
-                    className="btn btn-success col-sm-offset-2
+                      onClick={async () => {
+                        await deleteTask({ variables: { taskId } });
+                      }}
+                    >
+                      done
+                    </button>
+                  )}
+                  {!taskPending && (
+                    <button
+                      className="btn btn-success col-sm-offset-2
                       col-sm-2"
-                    onClick={async () => {
-                      await undoTask({ variables: { taskId } });
-                    }}
-                  >
-                    Undo
-                  </button>
-                )}
-                <small />
-              </div>
-              <p className="mb-1 col-sm-12">{detail}</p>
-            </a>
+                      onClick={async () => {
+                        await undoTask({ variables: { taskId } });
+                      }}
+                    >
+                      Undo
+                    </button>
+                  )}
+                  <small />
+                </div>
+                <p className="mb-1 col-sm-12">{detail}</p>
+              </a>
+            </div>
           );
         }
       )}
