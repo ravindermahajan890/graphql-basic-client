@@ -41,11 +41,17 @@ ReactDOM.render(
                   Add
                 </Link>
               </li>
+              <li className="nav-item active">
+                <Link className="nav-link" to="/today">
+                  Todays task
+                </Link>
+              </li>
             </ul>
           </div>
         </nav>
         <Route exact path="/" component={ListPage} />
         <Route exact path="/add" component={AddPage} />
+        <Route exact path="/today" component={ListPage} />
       </div>
     </Router>
   </ApolloProvider>,
