@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.20",
+    "@apollo/react-hooks": "^4.0.0",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link-http": "^1.5.14",
@@ -11,7 +12,6 @@
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "react": "^16.8.5",
-    "react-apollo": "^2.5.2",
     "react-datepicker": "^2.7.0",
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0",
