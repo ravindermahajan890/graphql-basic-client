@@ -19,7 +19,7 @@ const defaultOptions = {
 };
 const client = new ApolloClient({
   link: new HttpLink({
-    uri: "https://api.ravindermahajan.co.in/graphql",
+    uri: "https://ravindermahajan890.graphcdn.app",
   }),
   cache: new InMemoryCache(),
   defaultOptions,
